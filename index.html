@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>기독교 생태신학 — 버전 선택</title>
+<style>
+  :root {
+    --eco: #0f766e;
+    --eco-dark: #0b4f4a;
+    --eco-light: #52b7a8;
+    --eco-xlight: #d8f0ec;
+    --gold: #f4a261;
+    --bg: #f9fafb;
+    --card: #ffffff;
+    --text: #1a1a2e;
+    --muted: #6c757d;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    background: linear-gradient(135deg, #062f2c 0%, #0b4f4a 40%, #0f766e 100%);
+    color: #fff;
+    padding: 56px 24px 44px;
+    text-align: center;
+  }
+  header .icon { font-size: 3.2rem; display: block; margin-bottom: 14px; }
+  header h1 { font-size: 2.1rem; font-weight: 800; margin-bottom: 10px; }
+  header p { opacity: .85; font-size: 1.05rem; max-width: 520px; margin: 0 auto; line-height: 1.7; }
+  .badge-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+  .badge { background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.3); border-radius: 20px; padding: 4px 14px; font-size: .82rem; }
+  main {
+    flex: 1; max-width: 820px; margin: 0 auto;
+    padding: 52px 20px 80px; width: 100%;
+  }
+  .choose-label {
+    text-align: center; font-size: .88rem; font-weight: 700;
+    color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 28px;
+  }
+  .version-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media (max-width: 620px) { .version-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) {
+    header { padding: 36px 16px 28px; }
+    header h1 { font-size: 1.6rem; }
+    main { padding: 32px 14px 60px; }
+    .version-card { padding: 24px 18px 20px; }
+    .v-title { font-size: 1.1rem; }
+    .v-desc { font-size: .88rem; }
+    .v-features li { font-size: .82rem; }
+    .info-box { padding: 16px; flex-direction: column; gap: 10px; }
+  }
+  .version-card {
+    background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 36px 28px 32px; text-decoration: none; color: var(--text);
+    display: flex; flex-direction: column; gap: 14px;
+    border: 2px solid transparent; transition: all .22s;
+    position: relative; overflow: hidden;
+  }
+  .version-card:hover { transform: translateY(-4px); box-shadow: 0 8px 36px rgba(0,0,0,0.14); }
+  .version-card.middle { border-color: var(--eco-light); }
+  .version-card.middle:hover { border-color: var(--eco); }
+  .version-card.high { border-color: var(--eco); }
+  .version-card.high:hover { border-color: var(--eco-dark); }
+  .version-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+  }
+  .version-card.middle::before { background: linear-gradient(90deg, var(--eco-light), var(--eco)); }
+  .version-card.high::before { background: linear-gradient(90deg, var(--eco), var(--eco-dark)); }
+  .v-emoji { font-size: 2.8rem; }
+  .v-level { font-size: .78rem; font-weight: 700; letter-spacing: .8px; text-transform: uppercase; }
+  .version-card.middle .v-level { color: var(--eco); }
+  .version-card.high .v-level { color: var(--eco-dark); }
+  .v-title { font-size: 1.3rem; font-weight: 800; }
+  .v-desc { font-size: .93rem; color: var(--muted); line-height: 1.7; }
+  .v-features { list-style: none; display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+  .v-features li { font-size: .85rem; display: flex; align-items: flex-start; gap: 7px; }
+  .v-features li::before { content: '✓'; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .version-card.middle .v-features li::before { color: var(--eco); }
+  .version-card.high .v-features li::before { color: var(--eco-dark); }
+  .v-btn {
+    margin-top: auto; display: inline-block; padding: 12px 0; border-radius: 30px;
+    font-size: .92rem; font-weight: 700; text-align: center; transition: opacity .2s;
+  }
+  .version-card.middle .v-btn { background: var(--eco); color: #fff; }
+  .version-card.high .v-btn { background: var(--eco-dark); color: #fff; }
+  .version-card:hover .v-btn { opacity: .88; }
+  .info-box {
+    background: var(--card); border-radius: var(--radius);
+    padding: 24px 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    margin-top: 32px; display: flex; gap: 16px; align-items: flex-start;
+    border-left: 4px solid var(--gold);
+  }
+  .info-box .info-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .info-box p { font-size: .9rem; color: var(--muted); line-height: 1.7; }
+  .info-box strong { color: var(--text); }
+  footer {
+    background: var(--eco-dark); color: rgba(255,255,255,.75);
+    text-align: center; padding: 20px; font-size: .82rem;
+  }
+  footer a { color: rgba(255,255,255,.9); }
+</style>
+</head>
+<body>
+<div style="background:#0b4f4a;padding:10px 20px;display:flex;align-items:center;gap:10px;">
+  <a href="https://isaac-math.github.io/Faith_Reason/" style="color:#fff;text-decoration:none;font-size:.83rem;font-weight:600;display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:4px 12px;">← 신앙과 이성 전체</a>
+  <span style="color:rgba(255,255,255,.35);font-size:.8rem;">|</span>
+  <span style="color:rgba(255,255,255,.7);font-size:.82rem;">기독교 생태신학</span>
+</div>
+
+<header>
+  <span class="icon">🌍</span>
+  <h1>기독교 생태신학</h1>
+  <p>"땅을 정복하라"는 말씀은 착취 면허였을까,<br>아니면 정원사의 위임장이었을까?</p>
+  <div class="badge-row">
+    <span class="badge">📖 창세기 1:28</span>
+    <span class="badge">🌡️ 기후변화와 신앙</span>
+    <span class="badge">🐾 동물 신학</span>
+    <span class="badge">✨ 새 창조</span>
+  </div>
+</header>
+
+<main>
+  <p class="choose-label">버전 선택</p>
+
+  <div class="version-grid">
+
+    <a href="ECO_middle.html" class="version-card middle">
+      <span class="v-emoji">📗</span>
+      <span class="v-level">청소년 버전</span>
+      <span class="v-title">정원사 왕의 이야기</span>
+      <p class="v-desc">비유와 플립카드, 체크리스트로 창조 돌봄의 성경적 근거를 쉽게 탐구합니다.</p>
+      <ul class="v-features">
+        <li>정원사 왕 비유 — "다스리라"의 진짜 뜻</li>
+        <li>성경 속 생태 이야기 플립카드 4개</li>
+        <li>기후변화 쉬운 비유 + 기후 정의</li>
+        <li>동물을 배려하는 성경의 규정들</li>
+        <li>창조돌봄 실천 체크리스트</li>
+        <li>인물 카드 4인 + 퀴즈 10문제</li>
+      </ul>
+      <span class="v-btn">청소년 버전으로 →</span>
+    </a>
+
+    <a href="ECO_high.html" class="version-card high">
+      <span class="v-emoji">📘</span>
+      <span class="v-level">대학생 버전</span>
+      <span class="v-title">창조 돌봄의 성경신학</span>
+      <p class="v-desc">라다·카바쉬 원문 주해부터 린 화이트 논쟁, 라우다토 시 심층 분석, 벧후 3:10 본문비평까지.</p>
+      <ul class="v-features">
+        <li>창세기 1-2장 히브리어 원문 주해</li>
+        <li>린 화이트 테제(1967)와 그 유산</li>
+        <li>벧후 3:10 본문비평 — 소각인가 갱신인가</li>
+        <li>기후변화의 과학·정치·신학 3부 구성</li>
+        <li>동물 신학, 모델 논쟁 플립카드 5개</li>
+        <li>학자 9인 + 학술 레퍼런스 31편 + 퀴즈 12문제</li>
+      </ul>
+      <span class="v-btn">대학생 버전으로 →</span>
+    </a>
+
+  </div>
+
+  <div class="info-box">
+    <span class="info-icon">💡</span>
+    <p><strong>이 시리즈에 대해</strong><br>
+    "기독교 생태신학"은 창 1:28의 "다스리라"는 말씀을 원문 주해로 재조명하고, 창조에서 새 창조까지 성경 전체의 생태 비전을 탐구합니다. 특정 정당이나 정책을 지지하는 자료가 아니라, 성경적 창조 돌봄 신학을 다루는 자료입니다. <a href="../Evolutionary-Creation/index.html" style="color:var(--eco);font-weight:700;">진화적 창조(EC)</a> 시리즈를 먼저 읽으면 형상론·창세기 주해의 배경 지식에 도움이 됩니다.</p>
+  </div>
+</main>
+
+<footer>
+  <p>Made by Isaac with Claude | 기독교 생태신학 교육자료</p>
+</footer>
+
+</body>
+</html>
