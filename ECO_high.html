@@ -35,7 +35,8 @@
     --border:#dee2e6; --radius:12px; --shadow:0 2px 12px rgba(0,0,0,0.08);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
-  body{font-family:'Noto Sans KR','Apple SD Gothic Neo',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;}
+  body{font-family:'Noto Sans KR','Apple SD Gothic Neo',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;word-break:keep-all;overflow-wrap:break-word;}
+  th,td{overflow-wrap:anywhere;}
   .site-header{background:linear-gradient(135deg,#0b4f4a 0%,#0f766e 100%);color:#fff;padding:48px 24px 36px;text-align:center;}
   .site-header h1{font-size:2rem;font-weight:800;margin-bottom:8px;}
   .site-header p{opacity:.85;font-size:.98rem;max-width:520px;margin:0 auto;line-height:1.7;}
@@ -67,10 +68,10 @@
   .acc-body.open{max-height:1800px;padding:16px 18px;}
   .arrow{font-size:.75rem;color:var(--muted);transition:transform .25s;}
   .flip-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-bottom:20px;}
-  .flip-card{height:220px;cursor:pointer;perspective:1000px;}
-  .flip-inner{width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d;position:relative;}
+  .flip-card{min-height:220px;display:grid;cursor:pointer;perspective:1000px;}
+  .flip-inner{width:100%;display:grid;transition:transform .5s;transform-style:preserve-3d;position:relative;}
   .flip-card.flipped .flip-inner{transform:rotateY(180deg);}
-  .flip-front,.flip-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;}
+  .flip-front,.flip-back{grid-area:1/1;min-width:0;-webkit-backface-visibility:hidden;backface-visibility:hidden;border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;text-align:center;}
   .flip-front{background:var(--card);border:2px solid var(--eco-xlight);}
   .flip-back{background:var(--eco);color:#fff;transform:rotateY(180deg);}
   .flip-icon{font-size:2rem;margin-bottom:8px;}
@@ -223,7 +224,7 @@
 </div>
 <div class="acc-item">
   <button class="acc-btn" onclick="toggleAcc(this)">반론 ② 주해적 반론 <span class="arrow">▼</span></button>
-  <div class="acc-body"><p>창 1:28의 "다스리라"가 곧 착취를 명령한다는 화이트의 전제 자체가 히브리어 본문에 대한 오독이라는 반론입니다. 이는 본 자료 S2에서 본격적으로 다룹니다 — 결론을 먼저 말하면, 라다(רדה)는 목자적·왕적 통치를 의미하는 용어로, 폭군적 착취와 구별됩니다.</p></div>
+  <div class="acc-body"><p>창 1:28의 "다스리라"가 곧 착취를 명령한다는 화이트의 전제 자체가 히브리어 본문에 대한 오독이라는 반론입니다. 이는 본 자료 S2에서 본격적으로 다룹니다 — 결론을 먼저 말하면, 라다(רדה)는 왕적 통치를 가리키는 동사로(시 72:8 "다스리리니"), 단어 자체는 가혹한 통치에도 쓰입니다(레 25:43; 겔 34:4). 그러나 성경은 양 떼를 "포악으로" 다스린 목자들을 고발하고 가난한 자를 건지는 왕을 이상으로 제시하므로, 창세기의 라다는 문맥상(1:26-27의 하나님의 형상, 1:29-30의 먹을거리 규정) 착취 면허가 아닙니다.</p></div>
 </div>
 <div class="acc-item">
   <button class="acc-btn" onclick="toggleAcc(this)">반론 ③ 화이트 자신의 대안 제시 <span class="arrow">▼</span></button>
@@ -239,7 +240,7 @@
 
 <div class="card">
   <p style="font-weight:700;color:var(--eco);margin-bottom:8px;">① <span class="heb">רָדָה</span>(라다) — "다스리라" (창 1:26, 28)</p>
-  <p>라다는 고대근동에서 왕적 통치를 가리키는 표준 용어입니다. 시편 72편은 이스라엘 왕에게 기대되는 "다스림"(같은 어근)이 무엇인지 구체적으로 보여줍니다 — "그가 가난한 백성의 억울함을 풀어주며 궁핍한 자를 도와주며 압박하는 자를 꺾으리로다"(시 72:4), "그는 궁핍한 자가 부르짖을 때에 건지며... 그는 그들의 생명을 압박과 강포에서 구원하리니"(72:12-14). 고대근동 왕 이데올로기에서 왕은 종종 <strong>"신의 목자"</strong>로 묘사되었습니다. 따라서 창세기의 라다는 <strong>목자적 왕권</strong>이지, 폭군적 착취가 아닙니다.</p>
+  <p>라다는 왕적 통치를 가리키는 동사입니다(시 72:8 "그가 바다에서부터 바다까지와 강에서부터 땅 끝까지 다스리리니"). 단어 자체는 가혹한 통치에도 쓰이지만(레 25:43 "너는 그를 엄하게 부리지 말고"; 겔 34:4 "다만 포악으로 그것들을 다스렸도다"), 시편 72편은 이스라엘 왕에게 기대되는 다스림이 무엇인지 구체적으로 보여줍니다 — "그가 가난한 백성의 억울함을 풀어 주며 궁핍한 자의 자손을 구원하며 압박하는 자를 꺾으리로다"(시 72:4), "그는 궁핍한 자가 부르짖을 때에 건지며 … 그들의 생명을 압박과 강포에서 구원하리니"(72:12-14). 고대근동 왕 이데올로기에서 왕은 종종 <strong>"신의 목자"</strong>로 묘사되었습니다. 따라서 창세기의 라다는 문맥상 <strong>목자적 왕권</strong>이지, 폭군적 착취가 아닙니다.</p>
 </div>
 <div class="card">
   <p style="font-weight:700;color:var(--eco);margin-bottom:8px;">② <span class="heb">כָּבַשׁ</span>(카바쉬) — "정복하라" (창 1:28)</p>
@@ -471,10 +472,10 @@
     <div class="pos-card neutral">
       <div class="pos-label">신중·회의 진영</div>
       <div class="pos-title">콘월 연합</div>
-      <p class="pos-body">콘월 연합(Cornwall Alliance, 바이스너 등)은 급진적 기후 정책이 화석연료 접근성을 낮춰 빈곤층에 더 해를 끼칠 수 있다고 우려하며, 창조 세계가 인간에게 넉넉히 제공되도록 설계되었다는 성경 해석(풍요로운 지구관)을 근거로 정책적 신중론을 제기합니다.</p>
+      <p class="pos-body">콘월 연합(Cornwall Alliance, 2005 설립, 대표 E. 캘빈 바이스너)은 ① 하나님이 설계하신 지구 생태계는 견고하고 회복력이 있으며 스스로 조절·교정한다는 창조 신학, ② 최근의 온난화는 지질 역사 속 여러 자연적 온난화·냉각 주기 가운데 하나이며 인간의 온실가스 배출이 '위험한' 온난화를 일으킨다는 설득력 있는 증거가 없다는 과학 평가(2009년 선언), ③ 화석연료 제한이 에너지 빈곤층을 해친다는 정책 논리로 기후 정책에 반대합니다.</p>
     </div>
   </div>
-  <div class="highlight-box" style="margin-top:14px;"><strong>공통 지반:</strong> 과학적 증거에 대한 평가와 정책적 신중론은 구별되어야 합니다. 흥미롭게도 양 진영 모두 <strong>"청지기직 자체"는 인정</strong>합니다 — 차이는 그 청지기직을 어떤 정책으로 구현할 것인가에 있습니다.</div>
+  <div class="highlight-box" style="margin-top:14px;"><strong>공통 지반과 쟁점:</strong> 양 진영 모두 <strong>"청지기직 자체"는 인정</strong>하지만, 차이는 정책만이 아니라 과학 평가에도 있습니다. 콘월 연합의 ②는 "인간 활동에 의한 온난화는 명백하다"는 IPCC AR6의 결론과 충돌하고, ③의 에너지 빈곤 우려는 행동 촉구 진영도 진지하게 다뤄야 할 논점입니다. <strong>응답:</strong> 기후 피해 역시 가난한 이들에게 먼저 닥칩니다(기후 정의).</div>
 </div>
 <p style="font-size:.9rem;color:var(--muted);margin-top:14px;">기후 절망(climate grief)이 확산되는 오늘, 신학은 절망도 무관심도 아닌 <strong>소망에 근거한 행동</strong>을 제안합니다(S12 참조).</p>
 </section>
@@ -576,7 +577,7 @@
 <div class="section-title">용어 사전</div>
 <p class="section-sub">이 자료에서 사용된 핵심 학술 용어 16항.</p>
 <div class="card" style="padding:0 28px;">
-  <div class="gloss-item" style="padding-top:20px;"><div class="gloss-term">라다 / <span class="heb">רָדָה</span></div><div class="gloss-orig">Radah — "다스리다"</div><div class="gloss-def">고대근동 왕적 통치를 가리키는 용어. 시편 72편의 목자적 왕권 개념과 병행되며, 폭군적 지배가 아닌 돌보는 통치를 의미.</div></div>
+  <div class="gloss-item" style="padding-top:20px;"><div class="gloss-term">라다 / <span class="heb">רָדָה</span></div><div class="gloss-orig">Radah — "다스리다"</div><div class="gloss-def">왕적 통치를 가리키는 동사(시 72:8 "다스리리니"). 단어 자체는 가혹한 통치에도 쓰임(레 25:43; 겔 34:4). 성경은 양 떼를 "포악으로" 다스린 목자들을 고발하고 가난한 자를 건지는 왕을 이상으로 제시하므로, 창세기의 라다는 문맥상(1:26-27의 하나님의 형상, 1:29-30의 먹을거리 규정) 착취 면허가 아님.</div></div>
   <div class="gloss-item"><div class="gloss-term">카바쉬 / <span class="heb">כָּבַשׁ</span></div><div class="gloss-orig">Kavash — "정복하다"</div><div class="gloss-def">창 1:28의 강한 동사. 주류 해석은 땅의 개간·경작 문맥으로 이해하나 남용의 위험을 경계해야 함.</div></div>
   <div class="gloss-item"><div class="gloss-term">아바드·샤마르 / <span class="heb">עָבַד</span>·<span class="heb">שָׁמַר</span></div><div class="gloss-orig">Avad, Shamar — "섬기다/경작하다", "지키다"</div><div class="gloss-def">창 2:15의 동사 쌍. 민수기의 레위인 성막 직무 용어와 병행되어 제사장적 정원사 소명을 시사.</div></div>
   <div class="gloss-item"><div class="gloss-term">토브 / <span class="heb">טוֹב</span></div><div class="gloss-orig">Tov — "좋다"</div><div class="gloss-def">창세기 1장에서 7회 반복되는 창조 후렴구. 피조물이 인간의 유용성과 무관하게 그 자체로 선함을 선언.</div></div>
@@ -638,53 +639,54 @@
 
 <div class="ref-group">
   <div class="ref-group-title">① 고전·논쟁의 출발</div>
-  <div class="ref-item"><span class="ref-num">1.</span>White, Lynn Jr. "The Historical Roots of Our Ecologic Crisis." <em>Science</em> 155/3767 (1967): 1203–1207. 생태신학 논쟁을 촉발한 핵심 논문.</div>
-  <div class="ref-item"><span class="ref-num">2.</span>Moncrief, Lewis W. "The Cultural Basis for Our Environmental Crisis." <em>Science</em> 170 (1970): 508–512. 화이트 테제에 대한 초기 반론.</div>
-  <div class="ref-item"><span class="ref-num">3.</span>Schaeffer, Francis A. <em>Pollution and the Death of Man</em>. Tyndale, 1970. 복음주의 최초기의 생태신학적 응답.</div>
-  <div class="ref-item"><span class="ref-num">4.</span>Sittler, Joseph. "Called to Unity." <em>The Ecumenical Review</em> 14 (1962): 177–187. 우주적 그리스도론의 초기 형성.</div>
-  <div class="ref-item"><span class="ref-num">5.</span>Cobb, John B. Jr. <em>Is It Too Late? A Theology of Ecology</em>. Bruce, 1972. 과정신학적 생태윤리의 대표작.</div>
-  <div class="ref-item"><span class="ref-num">6.</span>Santmire, H. Paul. <em>The Travail of Nature</em>. Fortress, 1985. 기독교 자연신학사 전반을 정리한 고전.</div>
+  <div class="ref-item"><span class="ref-num">1.</span><span>White, Lynn Jr. "The Historical Roots of Our Ecologic Crisis." <em>Science</em> 155/3767 (1967): 1203–1207. 생태신학 논쟁을 촉발한 핵심 논문.</span></div>
+  <div class="ref-item"><span class="ref-num">2.</span><span>Moncrief, Lewis W. "The Cultural Basis for Our Environmental Crisis." <em>Science</em> 170 (1970): 508–512. 화이트 테제에 대한 초기 반론.</span></div>
+  <div class="ref-item"><span class="ref-num">3.</span><span>Schaeffer, Francis A. <em>Pollution and the Death of Man</em>. Tyndale, 1970. 복음주의 최초기의 생태신학적 응답.</span></div>
+  <div class="ref-item"><span class="ref-num">4.</span><span>Sittler, Joseph. "Called to Unity." <em>The Ecumenical Review</em> 14 (1962): 177–187. 우주적 그리스도론의 초기 형성.</span></div>
+  <div class="ref-item"><span class="ref-num">5.</span><span>Cobb, John B. Jr. <em>Is It Too Late? A Theology of Ecology</em>. Bruce, 1972. 과정신학적 생태윤리의 대표작.</span></div>
+  <div class="ref-item"><span class="ref-num">6.</span><span>Santmire, H. Paul. <em>The Travail of Nature</em>. Fortress, 1985. 기독교 자연신학사 전반을 정리한 고전.</span></div>
 </div>
 
 <div class="ref-group">
   <div class="ref-group-title">② 성경신학·주해</div>
-  <div class="ref-item"><span class="ref-num">7.</span>Bauckham, Richard. <em>Bible and Ecology: Rediscovering the Community of Creation</em>. Baylor UP, 2010. 피조물 공동체 모델의 대표작.</div>
-  <div class="ref-item"><span class="ref-num">8.</span>Bauckham, Richard. <em>Living with Other Creatures</em>. Baylor UP, 2011. 성경적 동물윤리 심화.</div>
-  <div class="ref-item"><span class="ref-num">9.</span>Davis, Ellen F. <em>Scripture, Culture, and Agriculture: An Agrarian Reading of the Bible</em>. Cambridge UP, 2009. 농경학적 성경 해석학.</div>
-  <div class="ref-item"><span class="ref-num">10.</span>Middleton, J. Richard. <em>A New Heaven and a New Earth</em>. Baker Academic, 2014. (『새 하늘과 새 땅』, 새물결플러스) 종말론 갱신 논의의 핵심서.</div>
-  <div class="ref-item"><span class="ref-num">11.</span>Moo, Douglas J. & Jonathan A. Moo. <em>Creation Care: A Biblical Theology of the Natural World</em>. Zondervan, 2018. 부자 학제간 협업.</div>
-  <div class="ref-item"><span class="ref-num">12.</span>Richter, Sandra L. <em>Stewards of Eden</em>. IVP Academic, 2020. 대중적 청지기직 신학 입문서.</div>
-  <div class="ref-item"><span class="ref-num">13.</span>Wright, N.T. <em>Surprised by Hope</em>. HarperOne, 2008. (『마침내 드러난 하나님 나라』, IVP) 부활·새창조 종말론.</div>
-  <div class="ref-item"><span class="ref-num">14.</span>Wright, Christopher J.H. <em>The Mission of God</em>. IVP Academic, 2006. 성경 신학의 선교적 읽기.</div>
+  <div class="ref-item"><span class="ref-num">7.</span><span>Bauckham, Richard. <em>Bible and Ecology: Rediscovering the Community of Creation</em>. Baylor UP, 2010. 피조물 공동체 모델의 대표작.</span></div>
+  <div class="ref-item"><span class="ref-num">8.</span><span>Bauckham, Richard. <em>Living with Other Creatures</em>. Baylor UP, 2011. 성경적 동물윤리 심화.</span></div>
+  <div class="ref-item"><span class="ref-num">9.</span><span>Davis, Ellen F. <em>Scripture, Culture, and Agriculture: An Agrarian Reading of the Bible</em>. Cambridge UP, 2009. 농경학적 성경 해석학.</span></div>
+  <div class="ref-item"><span class="ref-num">10.</span><span>Middleton, J. Richard. <em>A New Heaven and a New Earth</em>. Baker Academic, 2014. (『새 하늘과 새 땅』, 새물결플러스) 종말론 갱신 논의의 핵심서.</span></div>
+  <div class="ref-item"><span class="ref-num">11.</span><span>Moo, Douglas J. & Jonathan A. Moo. <em>Creation Care: A Biblical Theology of the Natural World</em>. Zondervan, 2018. 부자 학제간 협업.</span></div>
+  <div class="ref-item"><span class="ref-num">12.</span><span>Richter, Sandra L. <em>Stewards of Eden</em>. IVP Academic, 2020. 대중적 청지기직 신학 입문서.</span></div>
+  <div class="ref-item"><span class="ref-num">13.</span><span>Wright, N.T. <em>Surprised by Hope</em>. HarperOne, 2008. (『마침내 드러난 하나님 나라』, IVP) 부활·새창조 종말론.</span></div>
+  <div class="ref-item"><span class="ref-num">14.</span><span>Wright, Christopher J.H. <em>The Mission of God</em>. IVP Academic, 2006. 성경 신학의 선교적 읽기.</span></div>
 </div>
 
 <div class="ref-group">
   <div class="ref-group-title">③ 조직신학·생태신학사</div>
-  <div class="ref-item"><span class="ref-num">15.</span>Moltmann, Jürgen. <em>God in Creation</em>. SCM, 1985. (『창조 안에 계신 하나님』, 김균진 역, 대한기독교서회) 성령론적 생태신학.</div>
-  <div class="ref-item"><span class="ref-num">16.</span>McFague, Sallie. <em>The Body of God: An Ecological Theology</em>. Fortress, 1993. 생태여성신학의 대표작.</div>
-  <div class="ref-item"><span class="ref-num">17.</span>Ruether, Rosemary Radford. <em>Gaia and God</em>. HarperSanFrancisco, 1992. 생태여성신학의 고전.</div>
-  <div class="ref-item"><span class="ref-num">18.</span>Deane-Drummond, Celia. <em>Eco-Theology</em>. DLT, 2008. 생태신학 개관서.</div>
-  <div class="ref-item"><span class="ref-num">19.</span>Bouma-Prediger, Steven. <em>For the Beauty of the Earth</em>. Baker Academic, 2001 (2nd ed. 2010). 복음주의 생태신학 입문서.</div>
-  <div class="ref-item"><span class="ref-num">20.</span>Wilkinson, Loren (ed.). <em>Earthkeeping: Christian Stewardship of Natural Resources</em>. Eerdmans, 1980. 복음주의 학술 응답의 효시.</div>
+  <div class="ref-item"><span class="ref-num">15.</span><span>Moltmann, Jürgen. <em>God in Creation</em>. SCM, 1985. (『창조 안에 계신 하나님』, 김균진 역, 대한기독교서회) 성령론적 생태신학.</span></div>
+  <div class="ref-item"><span class="ref-num">16.</span><span>McFague, Sallie. <em>The Body of God: An Ecological Theology</em>. Fortress, 1993. 생태여성신학의 대표작.</span></div>
+  <div class="ref-item"><span class="ref-num">17.</span><span>Ruether, Rosemary Radford. <em>Gaia and God</em>. HarperSanFrancisco, 1992. 생태여성신학의 고전.</span></div>
+  <div class="ref-item"><span class="ref-num">18.</span><span>Deane-Drummond, Celia. <em>Eco-Theology</em>. DLT, 2008. 생태신학 개관서.</span></div>
+  <div class="ref-item"><span class="ref-num">19.</span><span>Bouma-Prediger, Steven. <em>For the Beauty of the Earth</em>. Baker Academic, 2001 (2nd ed. 2010). 복음주의 생태신학 입문서.</span></div>
+  <div class="ref-item"><span class="ref-num">20.</span><span>Wilkinson, Loren (ed.). <em>Earthkeeping: Christian Stewardship of Natural Resources</em>. Eerdmans, 1980. 복음주의 학술 응답의 효시.</span></div>
 </div>
 
 <div class="ref-group">
   <div class="ref-group-title">④ 동물·음식·실천</div>
-  <div class="ref-item"><span class="ref-num">21.</span>Linzey, Andrew. <em>Animal Theology</em>. SCM, 1994. 동물신학의 창시적 저작.</div>
-  <div class="ref-item"><span class="ref-num">22.</span>Clough, David L. <em>On Animals I: Systematic Theology</em> (T&T Clark, 2012); <em>II: Theological Ethics</em> (2019). 동물신학의 조직신학적 집대성.</div>
-  <div class="ref-item"><span class="ref-num">23.</span>Wirzba, Norman. <em>Food and Faith: A Theology of Eating</em>. Cambridge UP, 2011 (2nd ed. 2019). 음식의 신학.</div>
-  <div class="ref-item"><span class="ref-num">24.</span>Hayhoe, Katharine. <em>Saving Us</em>. One Signal, 2021. 기후과학과 신앙의 대화. [한국어판 존재 여부는 출판 시점에 따라 확인 필요]</div>
-  <div class="ref-item"><span class="ref-num">25.</span>Stott, John. <em>The Radical Disciple</em>. IVP, 2010. 창조 돌봄을 제자도로 다룸.</div>
-  <div class="ref-item"><span class="ref-num">26.</span>Berry, Wendell. <em>The Unsettling of America</em>. Sierra Club Books, 1977. 농업·공동체·생태 성찰 (선택 자료).</div>
+  <div class="ref-item"><span class="ref-num">21.</span><span>Linzey, Andrew. <em>Animal Theology</em>. SCM, 1994. 동물신학의 창시적 저작.</span></div>
+  <div class="ref-item"><span class="ref-num">22.</span><span>Clough, David L. <em>On Animals I: Systematic Theology</em> (T&T Clark, 2012); <em>II: Theological Ethics</em> (2019). 동물신학의 조직신학적 집대성.</span></div>
+  <div class="ref-item"><span class="ref-num">23.</span><span>Wirzba, Norman. <em>Food and Faith: A Theology of Eating</em>. Cambridge UP, 2011 (2nd ed. 2019). 음식의 신학.</span></div>
+  <div class="ref-item"><span class="ref-num">24.</span><span>Hayhoe, Katharine. <em>Saving Us</em>. One Signal, 2021. 기후과학과 신앙의 대화. [한국어판 존재 여부는 출판 시점에 따라 확인 필요]</span></div>
+  <div class="ref-item"><span class="ref-num">25.</span><span>Stott, John. <em>The Radical Disciple</em>. IVP, 2010. 창조 돌봄을 제자도로 다룸.</span></div>
+  <div class="ref-item"><span class="ref-num">26.</span><span>Berry, Wendell. <em>The Unsettling of America</em>. Sierra Club Books, 1977. 농업·공동체·생태 성찰 (선택 자료).</span></div>
 </div>
 
 <div class="ref-group">
   <div class="ref-group-title">⑤ 교회 문서·보고서</div>
-  <div class="ref-item"><span class="ref-num">27.</span>Francis. <em>Laudato Si'</em>. 2015. (한국어판 『찬미받으소서』, 한국천주교주교회의) / <em>Laudate Deum</em>. 2023. 가톨릭 생태 문서의 핵심.</div>
-  <div class="ref-item"><span class="ref-num">28.</span>Leo XIV. Address at "Raising Hope for Climate Justice," Castel Gandolfo, 2025.10.1. (vatican.va) 라우다토 시 10주년 기념 연설.</div>
-  <div class="ref-item"><span class="ref-num">29.</span>The Cape Town Commitment. Lausanne Movement, 2010. (I-7-A 창조 돌봄) 복음주의 진영의 공식 입장.</div>
-  <div class="ref-item"><span class="ref-num">30.</span>IPCC. <em>AR6 Synthesis Report</em>. 2023. 기후과학의 국제적 합의.</div>
-  <div class="ref-item"><span class="ref-num">31.</span>UNFCCC. COP30 '벨렘 패키지(Belém Package)' 결정문. 2025.11. (cop30.br / unfccc.int) 최신 국제 기후 정치 합의.</div>
+  <div class="ref-item"><span class="ref-num">27.</span><span>Francis. <em>Laudato Si'</em>. 2015. (한국어판 『찬미받으소서』, 한국천주교주교회의) / <em>Laudate Deum</em>. 2023. 가톨릭 생태 문서의 핵심.</span></div>
+  <div class="ref-item"><span class="ref-num">28.</span><span>Leo XIV. Address at "Raising Hope for Climate Justice," Castel Gandolfo, 2025.10.1. (vatican.va) 라우다토 시 10주년 기념 연설.</span></div>
+  <div class="ref-item"><span class="ref-num">29.</span><span>The Cape Town Commitment. Lausanne Movement, 2010. (I-7-A 창조 돌봄) 복음주의 진영의 공식 입장.</span></div>
+  <div class="ref-item"><span class="ref-num">30.</span><span>IPCC. <em>AR6 Synthesis Report</em>. 2023. 기후과학의 국제적 합의.</span></div>
+  <div class="ref-item"><span class="ref-num">31.</span><span>UNFCCC. COP30 '벨렘 패키지(Belém Package)' 결정문. 2025.11. (cop30.br / unfccc.int) 최신 국제 기후 정치 합의.</span></div>
+  <div class="ref-item"><span class="ref-num">32.</span><span>Cornwall Alliance for the Stewardship of Creation. <em>An Evangelical Declaration on Global Warming</em>. 2009.12. (cornwallalliance.org) 기후 정책에 신중·회의적인 복음주의 진영의 대표 선언.</span></div>
 </div>
 
 <div class="ref-warning">
@@ -913,7 +915,7 @@ function checkHQ(qNum,chosen,correctAns){
     const scoreBox=document.getElementById('hq-score-section');
     document.getElementById('hq-score-display').textContent=score+' / 12';
     const msgs=['자료를 다시 꼼꼼히 읽어보길 권합니다 🔄','조금 더 연습해 봅시다 📚','절반 이상 이해했습니다 ✅','좋습니다! 핵심을 잘 파악했습니다 👍','우수합니다! 🎉','만점! 탁월한 학문적 이해입니다 🏆'];
-    document.getElementById('hq-score-msg').textContent=msgs[Math.min(Math.floor(score/2.1),5)];
+    document.getElementById('hq-score-msg').textContent=msgs[score===12?5:Math.min(Math.floor(score/2.1),4)];
     scoreBox.style.display='block';
     scoreBox.scrollIntoView({behavior:'smooth'});
   }
