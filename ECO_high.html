@@ -31,7 +31,7 @@
   :root {
     --eco:#0f766e; --eco-dark:#0b4f4a; --eco-light:#52b7a8; --eco-xlight:#d8f0ec;
     --gold:#f4a261; --gold-light:#fde9d4;
-    --bg:#f9fafb; --card:#ffffff; --text:#1a1a2e; --muted:#6c757d;
+    --bg:#f9fafb; --card:#ffffff; --text:#1a1a2e; --muted:#5c636a;
     --border:#dee2e6; --radius:12px; --shadow:0 2px 12px rgba(0,0,0,0.08);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -143,11 +143,17 @@
     .person-grid{grid-template-columns:1fr;}
     .num-grid{grid-template-columns:1fr 1fr;}
   }
+  /* 상단 바: 알약 버튼은 한 줄로 유지하고, 경로 문구는 좁은 화면에서 숨긴다 */
+  .top-bar a{white-space:nowrap;flex-shrink:0;}
+  .top-bar>span:last-child{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  @media(max-width:480px){.top-bar>span:nth-last-child(-n+2){display:none;}}
+  /* nav로 이동했을 때 섹션 제목이 고정 nav 밑에 가리지 않게 */
+  section[id]{scroll-margin-top:60px;}
 </style>
 </head>
 <body>
 
-<div style="background:#0b4f4a;padding:10px 20px;display:flex;align-items:center;gap:10px;">
+<div class="top-bar" style="background:#0b4f4a;padding:10px 20px;display:flex;align-items:center;gap:10px;">
   <a href="https://faithreason.kr/Faith_Reason/" style="color:#fff;text-decoration:none;font-size:.83rem;font-weight:600;display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:4px 12px;">← 전체 시리즈</a>
   <span style="color:rgba(255,255,255,.35);font-size:.8rem;">|</span>
   <a href="index.html" style="color:#fff;text-decoration:none;font-size:.83rem;font-weight:600;display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:4px 12px;">🏠 홈으로</a>
@@ -186,7 +192,7 @@
 
 <!-- S0 도입 -->
 <section id="s0" class="section">
-<div class="section-title">소개 — 두 개의 부르짖음</div>
+<h2 class="section-title">소개 — 두 개의 부르짖음</h2>
 <p class="section-sub">땅의 부르짖음과 가난한 이들의 부르짖음이 만나는 지점에서, 성경적 창조 돌봄 신학을 학술적으로 탐구합니다.</p>
 <div class="card">
   <p style="font-weight:700;color:var(--eco);margin-bottom:12px;">방법론 선언</p>
@@ -212,7 +218,7 @@
 
 <!-- S1 린 화이트 테제 -->
 <section id="s1" class="section">
-<div class="section-title">논쟁의 출발점 — 린 화이트 테제 (1967)</div>
+<h2 class="section-title">논쟁의 출발점 — 린 화이트 테제 (1967)</h2>
 <p class="section-sub">현대 생태신학 전체를 촉발한 한 편의 논문.</p>
 <div class="card">
   <p>린 화이트 주니어(Lynn White Jr.)는 1967년 저명 학술지 <em>Science</em>에 "The Historical Roots of Our Ecologic Crisis"(우리 생태 위기의 역사적 뿌리)라는 논문을 발표했습니다. 그는 서구적 형태의 기독교가 ① 자연을 탈신성화(disenchantment)하고 ② 인간을 자연 위에 두는 인간중심주의(anthropocentrism)를 심어줌으로써 현대 생태 위기의 <strong>"역사적 뿌리"</strong>가 되었다고 주장했습니다.</p>
@@ -235,7 +241,7 @@
 
 <!-- S2 창세기 1-2 주해 -->
 <section id="s2" class="section">
-<div class="section-title">창세기 1-2 주해 — 학술 핵심</div>
+<h2 class="section-title">창세기 1-2 주해 — 학술 핵심</h2>
 <p class="section-sub">"다스리라"(창 1:28)와 "경작하며 지키게"(창 2:15)의 원문 분석.</p>
 
 <div class="card">
@@ -267,7 +273,7 @@
 
 <!-- S3 구약의 생태 비전 -->
 <section id="s3" class="section">
-<div class="section-title">구약의 생태 비전</div>
+<h2 class="section-title">구약의 생태 비전</h2>
 <p class="section-sub">노아 언약부터 예언서까지 — 구약 전체에 흐르는 생태적 신학.</p>
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('s3','s3t1',this)">① 노아 언약</button>
@@ -310,7 +316,7 @@
 
 <!-- S4 지혜문학과 시편 -->
 <section id="s4" class="section">
-<div class="section-title">지혜문학과 시편 — 인간중심주의의 성경적 해체</div>
+<h2 class="section-title">지혜문학과 시편 — 인간중심주의의 성경적 해체</h2>
 <p class="section-sub">성경 스스로 인간중심주의를 교정하는 놀라운 본문들.</p>
 <div class="acc-item">
   <button class="acc-btn" onclick="toggleAcc(this)">욥기 38-41장 — 하나님의 답변 <span class="arrow">▼</span></button>
@@ -328,7 +334,7 @@
 
 <!-- S5 신약과 새 창조 -->
 <section id="s5" class="section">
-<div class="section-title">신약과 새 창조 — 종말론 교정 섹션</div>
+<h2 class="section-title">신약과 새 창조 — 종말론 교정 섹션</h2>
 <p class="section-sub">"어차피 불탈 세상"이라는 통념에 대한 본문비평적 도전.</p>
 <div class="card">
   <p style="font-weight:700;color:var(--eco);margin-bottom:10px;">로마서 8:19-23 — 탄식하는 피조물</p>
@@ -357,7 +363,7 @@
 
 <!-- S6 모델 논쟁 -->
 <section id="s6" class="section">
-<div class="section-title">모델 논쟁 — 인간과 자연의 관계 스펙트럼</div>
+<h2 class="section-title">모델 논쟁 — 인간과 자연의 관계 스펙트럼</h2>
 <p class="section-sub">다섯 가지 모델을 비교합니다. 카드를 클릭해 핵심 논거와 난점을 확인하세요.</p>
 <div class="flip-grid">
   <div class="flip-card" onclick="flipCard(this)">
@@ -396,7 +402,7 @@
 
 <!-- S7 생태신학의 역사 -->
 <section id="s7" class="section">
-<div class="section-title">생태신학의 역사</div>
+<h2 class="section-title">생태신학의 역사</h2>
 <p class="section-sub">1960년대부터 오늘까지 — 생태신학이 형성되어 온 궤적.</p>
 <div class="timeline">
   <div class="tl-item"><div class="tl-year">1961/62</div><div class="tl-text">조지프 시틀러(Joseph Sittler), "Called to Unity" (WCC 뉴델리 총회) — 우주적 그리스도론으로 생태 신학의 초기 씨앗.</div></div>
@@ -419,7 +425,7 @@
 
 <!-- S8 라우다토 시 심층 분석 -->
 <section id="s8" class="section">
-<div class="section-title">라우다토 시 심층 분석</div>
+<h2 class="section-title">라우다토 시 심층 분석</h2>
 <p class="section-sub">가톨릭 교회의 대표적 생태 문서를 개신교 독자의 시각에서 읽습니다.</p>
 <div class="acc-item">
   <button class="acc-btn" onclick="toggleAcc(this)">문서 개요 <span class="arrow">▼</span></button>
@@ -446,7 +452,7 @@
 
 <!-- S9 기후변화 -->
 <section id="s9" class="section">
-<div class="section-title">기후변화 — 과학·정치·신학</div>
+<h2 class="section-title">기후변화 — 과학·정치·신학</h2>
 <p class="section-sub">세 층위를 구별해서 다룹니다.</p>
 <div class="card">
   <p style="font-weight:700;color:var(--eco);margin-bottom:10px;">① 과학</p>
@@ -482,7 +488,7 @@
 
 <!-- S10 동물 신학 -->
 <section id="s10" class="section">
-<div class="section-title">동물 신학</div>
+<h2 class="section-title">동물 신학</h2>
 <p class="section-sub">동물에 대한 신학적 성찰의 학문적 지형과 오늘의 쟁점들.</p>
 <div class="acc-item">
   <button class="acc-btn" onclick="toggleAcc(this)">학술 지형 <span class="arrow">▼</span></button>
@@ -508,7 +514,7 @@
 
 <!-- S11 세계 교회의 실천 -->
 <section id="s11" class="section">
-<div class="section-title">세계 교회의 실천</div>
+<h2 class="section-title">세계 교회의 실천</h2>
 <p class="section-sub">교단과 기관을 넘어선 창조 돌봄 운동의 지형도.</p>
 <div class="tab-bar">
   <button class="tab-btn active" onclick="switchTab('s11','s11t1',this)">정교회</button>
@@ -532,7 +538,7 @@
 
 <!-- S12 실천 신학 -->
 <section id="s12" class="section">
-<div class="section-title">실천 신학 — 창조 돌봄의 제자도</div>
+<h2 class="section-title">실천 신학 — 창조 돌봄의 제자도</h2>
 <p class="section-sub">신학적 성찰을 삶의 자리로 옮기는 마지막 단계.</p>
 <div class="card">
   <p style="font-weight:700;color:var(--eco);margin-bottom:10px;">음식의 신학</p>
@@ -556,7 +562,7 @@
 
 <!-- S13 학자 카드 -->
 <section id="s13" class="section">
-<div class="section-title">학자 카드</div>
+<h2 class="section-title">학자 카드</h2>
 <p class="section-sub">생태신학을 형성해온 9인의 학자.</p>
 <div class="person-grid">
   <div class="person-card"><div class="person-emoji">📜</div><div class="person-name">린 화이트</div><div class="person-role">Lynn White Jr. (1907-1987)</div><div class="person-work">"The Historical Roots of Our Ecologic Crisis" (1967)</div><p class="person-desc">역사학자. 생태 위기와 기독교 신학의 관계를 최초로 논쟁화한 논문의 저자. 이후 반세기 생태신학 논의의 출발점.</p></div>
@@ -574,7 +580,7 @@
 
 <!-- S14 용어사전 -->
 <section id="s14" class="section">
-<div class="section-title">용어 사전</div>
+<h2 class="section-title">용어 사전</h2>
 <p class="section-sub">이 자료에서 사용된 핵심 학술 용어 16항.</p>
 <div class="card" style="padding:0 28px;">
   <div class="gloss-item" style="padding-top:20px;"><div class="gloss-term">라다 / <span class="heb">רָדָה</span></div><div class="gloss-orig">Radah — "다스리다"</div><div class="gloss-def">왕적 통치를 가리키는 동사(시 72:8 "다스리리니"). 단어 자체는 가혹한 통치에도 쓰임(레 25:43; 겔 34:4). 성경은 양 떼를 "포악으로" 다스린 목자들을 고발하고 가난한 자를 건지는 왕을 이상으로 제시하므로, 창세기의 라다는 문맥상(1:26-27의 하나님의 형상, 1:29-30의 먹을거리 규정) 착취 면허가 아님.</div></div>
@@ -598,7 +604,7 @@
 
 <!-- S15 토론 논제 -->
 <section id="s15" class="section">
-<div class="section-title">토론 논제</div>
+<h2 class="section-title">토론 논제</h2>
 <p class="section-sub">6개의 열린 토론 주제 — 정답이 없는 질문들과 씨름하세요.</p>
 <div class="disc-card">
   <div class="disc-num">논제 01</div>
@@ -634,7 +640,7 @@
 
 <!-- S16 레퍼런스 -->
 <section id="s16" class="section">
-<div class="section-title">📎 학술 레퍼런스</div>
+<h2 class="section-title">📎 학술 레퍼런스</h2>
 <p class="section-sub">이 자료가 참고한 주요 문헌 목록입니다.</p>
 
 <div class="ref-group">
@@ -696,7 +702,7 @@
 
 <!-- S17 퀴즈 -->
 <section id="s17" class="section">
-<div class="section-title">퀴즈</div>
+<h2 class="section-title">퀴즈</h2>
 <p class="section-sub">12문항 — 학습한 내용을 점검해보세요.</p>
 
 <div class="quiz-card" id="hq1">
@@ -938,12 +944,21 @@ window.addEventListener('scroll',()=>{
     const h = a.getAttribute('href');
     if (h && h.charAt(0) === '#') map[h.slice(1)] = a;
   });
+  // 현재 섹션의 링크가 nav 화면 밖에 있으면 nav만 가로로 움직여 보이게 한다(페이지 세로 스크롤은 건드리지 않음)
+  function showInNav(a) {
+    let box = a.parentElement;
+    while (box && box !== document.body && !(/(auto|scroll)/.test(getComputedStyle(box).overflowX) && box.scrollWidth > box.clientWidth + 1)) box = box.parentElement;
+    if (!box || box === document.body) return;
+    const r = a.getBoundingClientRect(), b = box.getBoundingClientRect();
+    if (r.left < b.left + 8 || r.right > b.right - 8) box.scrollLeft += (r.left - b.left) - (b.width - r.width) / 2;
+  }
   if (!('IntersectionObserver' in window)) return;
   const obs = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (e.isIntersecting && map[e.target.id]) {
         navLinks.forEach(function (a) { a.classList.remove('active'); });
         map[e.target.id].classList.add('active');
+        showInNav(map[e.target.id]);
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });

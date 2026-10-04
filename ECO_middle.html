@@ -38,7 +38,7 @@
     --bg: #f9fafb;
     --card: #ffffff;
     --text: #1a1a2e;
-    --muted: #6c757d;
+    --muted: #5c636a;
     --border: #dee2e6;
     --radius: 12px;
     --shadow: 0 2px 12px rgba(0,0,0,0.08);
@@ -186,11 +186,17 @@
     .person-grid { grid-template-columns: 1fr; }
     .num-grid { grid-template-columns: 1fr 1fr; }
   }
+  /* 상단 바: 알약 버튼은 한 줄로 유지하고, 경로 문구는 좁은 화면에서 숨긴다 */
+  .top-bar a { white-space: nowrap; flex-shrink: 0; }
+  .top-bar > span:last-child { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  @media (max-width: 480px) { .top-bar > span:nth-last-child(-n+2) { display: none; } }
+  /* nav로 이동했을 때 섹션 제목이 고정 nav 밑에 가리지 않게 */
+  section[id] { scroll-margin-top: 60px; }
 </style>
 </head>
 <body>
 
-<div style="background:#0b4f4a;padding:10px 20px;display:flex;align-items:center;gap:10px;">
+<div class="top-bar" style="background:#0b4f4a;padding:10px 20px;display:flex;align-items:center;gap:10px;">
   <a href="https://faithreason.kr/Faith_Reason/" style="color:#fff;text-decoration:none;font-size:.83rem;font-weight:600;display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:4px 12px;">← 전체 시리즈</a>
   <span style="color:rgba(255,255,255,.35);font-size:.8rem;">|</span>
   <a href="index.html" style="color:#fff;text-decoration:none;font-size:.83rem;font-weight:600;
@@ -223,7 +229,7 @@
 
 <!-- S0 보시기에 좋았더라 -->
 <section id="s0" class="section">
-<div class="section-title">🌍 보시기에 좋았더라</div>
+<h2 class="section-title">🌍 보시기에 좋았더라</h2>
 <p class="section-sub">창세기 1장을 읽으면 이상한 후렴구가 계속 반복됩니다. 하나님은 세상을 만드시고 몇 번이나 이렇게 말씀하셨을까요?</p>
 <div class="card">
   <p style="font-weight:700;color:var(--eco);margin-bottom:12px;">"하나님이 보시기에 좋았더라" — 7번의 감탄</p>
@@ -256,7 +262,7 @@
 
 <!-- S1 다스리라의 진짜 뜻 -->
 <section id="s1" class="section">
-<div class="section-title">👑 "다스리라"의 진짜 뜻</div>
+<h2 class="section-title">👑 "다스리라"의 진짜 뜻</h2>
 <p class="section-sub">창 1:28 "땅을 정복하라... 다스리라"는 말씀, 착취해도 된다는 뜻일까요?</p>
 <div class="info-box">📖 <strong>단어와 배경부터:</strong> "정복하라"는 히브리어 <strong>카바쉬(kabash)</strong>, "다스리라"는 <strong>라다(radah)</strong>입니다. 고대 근동에서 이상적인 왕은 백성을 돌보는 <strong>'목자'</strong>로 불렸습니다(실제로는 폭력적인 왕도 많았고, 성경은 그런 지도자를 꾸짖습니다 — 겔 34:4). 그래서 창세기가 말하는 '다스림'의 무게중심은 '착취'가 아니라 '책임 있는 돌봄'에 있습니다.</div>
 <div class="card">
@@ -283,7 +289,7 @@
 
 <!-- S2 성경 속 생태 이야기 -->
 <section id="s2" class="section">
-<div class="section-title">📖 성경 속 생태 이야기</div>
+<h2 class="section-title">📖 성경 속 생태 이야기</h2>
 <p class="section-sub">성경 곳곳에 숨어 있는 놀라운 생태 이야기 4가지. 카드를 탭해서 뒷면을 확인해보세요.</p>
 <div class="flip-grid">
   <div class="flip-card" onclick="flipCard(this)">
@@ -347,7 +353,7 @@
 
 <!-- S3 아파하는 지구 -->
 <section id="s3" class="section">
-<div class="section-title">🌡️ 아파하는 지구</div>
+<h2 class="section-title">🌡️ 아파하는 지구</h2>
 <p class="section-sub">요즘 자주 듣는 '기후변화', 쉬운 비유로 이해해봅시다.</p>
 <div class="card">
   <p style="font-weight:700;color:var(--eco);margin-bottom:12px;">지구를 덮은 두꺼운 담요</p>
@@ -373,7 +379,7 @@
 
 <!-- S4 동물 친구들 -->
 <section id="s4" class="section">
-<div class="section-title">🐾 동물 친구들</div>
+<h2 class="section-title">🐾 동물 친구들</h2>
 <p class="section-sub">성경은 동물을 어떻게 대하라고 말할까요? 생각보다 많은 규정이 있습니다.</p>
 <div class="card">
   <p style="font-weight:700;color:var(--eco);margin-bottom:14px;">📜 성경 속 동물 배려 규정들</p>
@@ -391,7 +397,7 @@
 
 <!-- S5 지구는 버려질까? -->
 <section id="s5" class="section">
-<div class="section-title">✨ 지구는 버려질까?</div>
+<h2 class="section-title">✨ 지구는 버려질까?</h2>
 <p class="section-sub">"어차피 지구는 불타 없어질 텐데, 환경을 지킬 필요가 있을까?"라는 질문에 답해봅시다.</p>
 <div class="position-grid">
   <div class="pos-card bad">
@@ -424,7 +430,7 @@
 
 <!-- S6 세계 교회 이야기 -->
 <section id="s6" class="section">
-<div class="section-title">⛪ 세계 교회 이야기</div>
+<h2 class="section-title">⛪ 세계 교회 이야기</h2>
 <p class="section-sub">창조 돌봄을 실천해 온 교회들의 이야기를 만나봅시다.</p>
 <div class="story-grid">
   <div class="story-card">
@@ -448,7 +454,7 @@
 
 <!-- S7 나의 창조돌봄 실천 -->
 <section id="s7" class="section">
-<div class="section-title">🌱 나의 창조돌봄 실천</div>
+<h2 class="section-title">🌱 나의 창조돌봄 실천</h2>
 <p class="section-sub">오늘부터 해볼 수 있는 작은 실천들. 체크해보세요!</p>
 <ul class="checklist">
   <li><input type="checkbox"><span><strong>음식:</strong> 먹을 만큼만 담고 남기지 않기</span></li>
@@ -464,7 +470,7 @@
 
 <!-- S8 인물 카드 + 퀴즈 -->
 <section id="s8" class="section">
-<div class="section-title">🌟 창조 돌봄의 사람들</div>
+<h2 class="section-title">🌟 창조 돌봄의 사람들</h2>
 <p class="section-sub">창조 돌봄을 실천하며 살았던 네 명의 인물을 소개합니다.</p>
 <div class="person-grid">
   <div class="person-card">
@@ -500,7 +506,7 @@
 
 <!-- S9 퀴즈 -->
 <section id="s9" class="section">
-<div class="section-title">🌟 확인 퀴즈</div>
+<h2 class="section-title">🌟 확인 퀴즈</h2>
 <p class="section-sub">10문제로 오늘 배운 내용을 점검해 보세요.</p>
 
 <div class="quiz-card" id="q1">
@@ -716,12 +722,21 @@ window.addEventListener('scroll', () => {
     const h = a.getAttribute('href');
     if (h && h.charAt(0) === '#') map[h.slice(1)] = a;
   });
+  // 현재 섹션의 링크가 nav 화면 밖에 있으면 nav만 가로로 움직여 보이게 한다(페이지 세로 스크롤은 건드리지 않음)
+  function showInNav(a) {
+    let box = a.parentElement;
+    while (box && box !== document.body && !(/(auto|scroll)/.test(getComputedStyle(box).overflowX) && box.scrollWidth > box.clientWidth + 1)) box = box.parentElement;
+    if (!box || box === document.body) return;
+    const r = a.getBoundingClientRect(), b = box.getBoundingClientRect();
+    if (r.left < b.left + 8 || r.right > b.right - 8) box.scrollLeft += (r.left - b.left) - (b.width - r.width) / 2;
+  }
   if (!('IntersectionObserver' in window)) return;
   const obs = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (e.isIntersecting && map[e.target.id]) {
         navLinks.forEach(function (a) { a.classList.remove('active'); });
         map[e.target.id].classList.add('active');
+        showInNav(map[e.target.id]);
       }
     });
   }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
